@@ -1,0 +1,214 @@
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .navbar {
+            background-color: #993333 !important;
+        }
+        .navbar-nav .nav-link,
+        .navbar-brand {
+            color: #fff !important;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #ffd9d9 !important;
+        }
+        .profile-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        .image-container {
+            height: 500px;
+            overflow: hidden;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.2s ease-in-out; /* Faster transition */
+        }
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+        h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #555;
+        }
+        section {
+            padding: 40px;
+            background-color: #f8f4ec;
+        }
+        .btn {
+            background-color: #cc3300;
+            border: none;
+            color: white;
+            padding: 15px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out; /* Faster transition */
+        }
+        .btn:hover {
+            background-color: #993333;
+            transform: scale(1.05);
+        }
+        /* Section for Featured By */
+        .section-featured-by {
+            background-color: #5a1f1f;
+            color: #fff;
+            padding: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .text-overlay {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+        }
+        .brand-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+            padding: 0.5rem;
+            text-transform: uppercase;
+            color: #fff; /* Changed to white as requested */
+        }
+        @media (max-width: 768px) {
+            .brand-text {
+                font-size: 1.2rem;
+            }
+        }
+        /* Image hover animation for the 'How it works' and 'First Lunchbox' sections */
+        .img-fluid.rounded {
+            transition: transform 0.2s ease-in-out; /* Faster transition */
+        }
+        .img-fluid.rounded:hover {
+            transform: scale(1.03);
+        }
+        .predefined-questions-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 8px; /* Spacing between buttons */
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .predefined-q {
+            font-size: 0.85rem; /* Smaller font size */
+            padding: 6px 10px; /* Smaller padding */
+            white-space: nowrap; /* Prevents text from wrapping */
+        }
+        .value-section {
+    background-color: #922b21;
+    color: #fff;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.value-card {
+    background: rgba(255, 255, 255, 0.1); /* Slightly more opaque for better contrast */
+    backdrop-filter: blur(8px); /* Increased blur for smoother effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Slightly stronger border */
+    border-radius: 15px; /* Slightly more rounded */
+    padding: 40px 20px;
+    height: 100%;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Faster, smoother transitions with a cubic-bezier function */
+    position: relative; /* Needed for pseudo-element animation */
+    overflow: hidden; /* Ensures glow stays within bounds */
+}
+
+.value-card:hover {
+    transform: translateY(-20px) scale(1.02); /* More pronounced lift and slight scale */
+    background: rgba(255, 255, 255, 0.2); /* More prominent background on hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+}
+
+/* Pseudo-element for a subtle glow/shine effect on hover */
+.value-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.1) 80%, transparent);
+    transition: left 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.value-card:hover::before {
+    left: 100%;
+}
+
+
+.value-card h5 {
+    color: #fff; /* Keeping white for strong contrast against the darker background */
+    font-weight: 700;
+    letter-spacing: 1.5px; /* Slightly increased letter spacing for readability */
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); /* Subtle text shadow for better definition */
+}
+
+.value-card p {
+    color: #e0e0e0; /* Slightly off-white for body text for softer appearance */
+    transition: color 0.3s ease;
+}
+
+.value-card:hover p {
+    color: #fff; /* White on hover for more emphasis */
+}
+
+.value-icon {
+    font-size: 4rem; /* Larger icon */
+    color: #ffda47; /* Brighter gold/yellow */
+    margin-bottom: 25px; /* More space below icon */
+    text-shadow: 0 0 15px rgba(255, 218, 71, 0.7); /* More prominent glow effect */
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Add transition for icon */
+}
+
+.value-card:hover .value-icon {
+    transform: rotateY(15deg) scale(1.1); /* Slight 3D rotation and scale on hover */
+    color: #ffe89e; /* Even brighter gold on hover */
+}
+
+.value-line {
+    width: 70px; /* Slightly shorter default line */
+    height: 4px; /* Thicker line */
+    background-color: #ffda47; /* Brighter gold */
+    border: none;
+    opacity: 0.9;
+    margin: 0 auto 25px auto;
+    transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Faster, smoother transition for line */
+}
+
+.value-card:hover .value-line {
+    width: 120px; /* More significant expansion on hover */
+    background-color: #ffe89e; /* Brighter line on hover */
+}
+
+/* Ensure the main heading is also white for consistency */
+.value-section h2 {
+    color: #fff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Stronger shadow for main heading */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
