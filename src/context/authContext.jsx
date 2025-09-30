@@ -1,9 +1,12 @@
+// customer-react/src/context/authContext.jsx
+
 import React, { createContext, useContext, useState } from 'react';
-import { apiProfile } from '../services/apiClient';
+import { apiProfile } from '../services/apiClient'; // Assuming apiClient handles profile GET
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+    // 1. Initialize state from localStorage
     const [user, setUser] = useState(() => {
         const storedUser = localStorage.getItem('user');
         return storedUser ? JSON.parse(storedUser) : null;
@@ -11,12 +14,14 @@ export const AuthProvider = ({ children }) => {
 
     // Fetches and updates user data, including the profile picture.
     const fetchUserData = async () => {
-        const result = await apiProfile.get();
+        const result = await apiProfile.get(); // Assumes this API returns user data including 'id'
         if (result.success && result.user) {
-            // Merge the new profile data with the existing user data
+            // Ensure result.user contains the user's ID
             const updatedUser = {
-                ...user,
-                ...result.user,
+                // Keep existing user data (like tokens, if any)
+                ...user, 
+                // Overwrite/add new profile data (e.g., name, email, id)
+                ...result.user, 
             };
             setUser(updatedUser);
             localStorage.setItem('user', JSON.stringify(updatedUser));
@@ -25,7 +30,9 @@ export const AuthProvider = ({ children }) => {
         return user;
     };
 
+    // 2. Ensure user data passed to login includes the ID
     const login = (userData) => {
+        // userData must contain the user's ID (e.g., {id: 123, username: 'test'})
         setUser(userData);
         localStorage.setItem('user', JSON.stringify(userData));
     };
@@ -37,10 +44,10 @@ export const AuthProvider = ({ children }) => {
 
     const value = {
         user,
+        // Crucial: Access user.id if needed, but it's contained within 'user'
         isAuthenticated: !!user,
         login,
         logout,
-        // ✅ Add the new function to the context value
         fetchUserData,
     };
 

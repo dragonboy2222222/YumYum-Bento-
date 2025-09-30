@@ -13,6 +13,8 @@ import AboutUs from './pages/abouttus';
 import FAQPage from './pages/faq';
 import PrivacyPage from './pages/privacy';
 import TermsPage from './pages/terms';
+import CartPage from './pages/cartpage';
+import CheckoutPage from './pages/checkout';
 
 
 
@@ -44,6 +46,10 @@ const App = () => {
         <Route path="/policy" element={<PrivacyPage />} />
 
         <Route path="/terms" element={<TermsPage />} />
+
+        <Route path="/cart" element={<CartPage />} />
+
+        <Route path="/checkout" element={<CheckoutPage />} />
 
 
 

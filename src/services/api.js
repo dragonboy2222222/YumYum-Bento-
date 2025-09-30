@@ -1,5 +1,4 @@
 // customer-react/src/services/api.js
-
 const API_BASE_URL = 'http://localhost:3000/Webpage/api'; // *** CHANGE THIS URL ***
 
 export const fetchHomeData = async () => {
@@ -83,4 +82,39 @@ export const fetchLunchboxData = async (lunchboxId) => {
     }
 };
 
+// customer-react/src/services/api.js (Add this to the end of the file)
 
+export const fetchCartData = async () => {
+    // Note: This API call needs to send session cookies. Ensure your fetch 
+    // uses credentials if you are using sessions.
+    
+    try {
+        const url = `${API_BASE_URL}/cart_data.php`; 
+        
+        const response = await fetch(url, {
+            // Include credentials to send cookies for PHP session
+            credentials: 'include' 
+        });
+
+        if (response.status === 401) {
+             throw new Error("Login required to view cart.");
+        }
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.success) {
+            // Returns { items: [], total: 0.00 }
+            return data.data; 
+        } else {
+            throw new Error(data.message || 'Failed to fetch cart data from API.');
+        }
+
+    } catch (error) {
+        console.error("Error fetching cart data:", error);
+        throw error;
+    }
+};

@@ -4,6 +4,7 @@ import App from './App';
 import { AuthProvider } from './context/authContext';
 // 1. Core Bootstrap CSS (You already have this)
 import "bootstrap/dist/css/bootstrap.min.css"; 
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 // 2. Bootstrap JavaScript (Needed for dropdowns, toggles, etc.)
 //    This line is CRUCIAL for making interactive elements work!

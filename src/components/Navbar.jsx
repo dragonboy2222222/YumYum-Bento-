@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 // ❌ REMOVE: import 'bootstrap/js/dist/dropdown'; 
-//    (This is the vanilla JS that causes conflicts)
+//    (This is the vanilla JS that causes conflicts)
 
 // ✅ NEW: Import components from react-bootstrap
 import { Navbar as RBNavbar, Nav, NavDropdown } from 'react-bootstrap';
@@ -24,7 +24,7 @@ const Navbar = ({ navData = {} }) => {
             <div className="container-fluid">
                 <div className="d-flex w-100 justify-content-between align-items-center">
                     
-                    {/* Left side */}
+                    {/* Left side (Logo and Menu Links) */}
                     <Nav className="me-auto d-flex flex-row align-items-center">
                         {/* Logo Link */}
                         <Link className="navbar-brand me-5" to="/">
@@ -58,11 +58,10 @@ const Navbar = ({ navData = {} }) => {
                         <Nav.Link as={NavLink} to="/faq" className="d-none d-lg-block">FAQ</Nav.Link>
                     </Nav>
 
-                    {/* Right side */}
-                    {/* We can't use collapse navbar-collapse with Link/Nav/NavDropdown here easily,
-                        so we simplify the right side into a standard Nav */}
+                    {/* Right side (Cart, Profile/Auth) */}
                     <Nav className="ms-auto d-flex align-items-center">
-                        {/* Cart */}
+                        
+                        {/* 🌟 MOVED HERE: Cart icon with count, immediately before Auth buttons 🌟 */}
                         <Nav.Item>
                             <Link className="nav-link position-relative" to="/cart">
                                 <i className="fas fa-shopping-cart"></i>
@@ -73,6 +72,7 @@ const Navbar = ({ navData = {} }) => {
                                 )}
                             </Link>
                         </Nav.Item>
+                        {/* 🌟 END MOVED ITEM 🌟 */}
 
                         {/* Auth Buttons */}
                         {isAuthenticated ? (
