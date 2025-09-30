@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar'; // Re-use the existing Navbar
 import Footer from '../components/Footer'; // Re-use the existing Footer
 import { fetchMenusData } from '../services/api';
+import Chatbot from '../components/chatbot';
 
 const MenusPage = () => {
     // Get the lunchbox_id from the URL, if it exists
@@ -74,6 +75,7 @@ const MenusPage = () => {
                     )}
                 </div>
             </main>
+             <Chatbot /> 
             <Footer />
         </>
     );

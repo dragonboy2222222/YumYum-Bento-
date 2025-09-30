@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import { fetchReviews, fetchHomeData } from '../services/api'; // fetchHomeData needed for Navbar
 import { submitReview } from '../services/apiActions'; 
 import { useAuth } from '../context/authContext';
+import Chatbot from '../components/chatbot'; // 1. Import the Chatbot component
 
 // Utility for Star Rating Display (remains the same)
 const StarRating = ({ rating }) => {
@@ -268,6 +269,7 @@ const ReviewsPage = () => {
                 </div>
             </main>
             {/* 3. Footer */}
+             <Chatbot /> 
             <Footer />
         </>
     );

@@ -2,8 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+// 1. Import the Chatbot component
+import Chatbot from '../components/chatbot'; 
 import { fetchHomeData } from '../services/api'; // Import the API function
+import { useAuth } from '../context/authContext';
 import { Link } from 'react-router-dom';
+
 
 const HomePage = () => {
     const [navData, setNavData] = useState({});
@@ -160,6 +164,8 @@ const HomePage = () => {
                 {renderHowItWorks()}
                 {renderFirstLunchbox()}
             </main>
+            {/* 2. Render the Chatbot component here */}
+            <Chatbot /> 
             <Footer /> 
         </>
     );

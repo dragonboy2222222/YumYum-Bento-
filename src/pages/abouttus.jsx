@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-// 🎯 Import the same API function used by HomePage to get the nav data
+import Chatbot from '../components/chatbot'; // 1. Import the Chatbot component
 import { fetchHomeData } from '../services/api'; 
 import { Link } from 'react-router-dom';
 
@@ -90,9 +90,13 @@ const AboutUs = () => {
 
     return (
         <>
-            {/* 🎯 Pass the fetched navData prop to the Navbar */}
+            {/* Pass the fetched navData prop to the Navbar */}
             <Navbar navData={navData} />
             {renderContent()}
+            
+            {/* 2. Render the Chatbot component here */}
+            <Chatbot /> 
+
             <Footer />
         </>
     );

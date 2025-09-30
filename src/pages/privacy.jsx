@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 // We use fetchHomeData to ensure the Navbar has its required data (like lunchboxes)
 import { fetchHomeData } from '../services/api'; 
+import Chatbot from '../components/chatbot'; // 1. Import the Chatbot component
 
 
 const PrivacyPage = () => {
@@ -114,6 +115,7 @@ const PrivacyPage = () => {
         <>
             <Navbar navData={navData} />
             {renderPolicyContent()}
+             <Chatbot /> 
             <Footer />
         </>
     );

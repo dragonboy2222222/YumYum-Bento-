@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import { fetchHomeData } from '../services/api'; 
 // 🎯 NEW: Import the Accordion component from react-bootstrap
 import { Accordion } from 'react-bootstrap';
+import Chatbot from '../components/chatbot'; // 1. Import the Chatbot component
 
 
 // --- STATIC FAQ CONTENT ---
@@ -109,6 +110,7 @@ const FAQPage = () => {
         <>
             <Navbar navData={navData} />
             {renderFAQContent()}
+             <Chatbot /> 
             <Footer />
         </>
     );

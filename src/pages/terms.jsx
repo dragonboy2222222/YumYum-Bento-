@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { fetchHomeData } from '../services/api'; 
+import Chatbot from '../components/chatbot'; // 1. Import the Chatbot component
 
 
 const TermsPage = () => {
@@ -136,6 +137,7 @@ const TermsPage = () => {
         <>
             <Navbar navData={navData} />
             {renderTermsContent()}
+             <Chatbot /> 
             <Footer />
         </>
     );
