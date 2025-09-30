@@ -7,7 +7,6 @@ import Footer from '../components/Footer';
 import { fetchHomeData } from '../services/api'; 
 import { Link } from 'react-router-dom';
 
-
 const AboutUs = () => {
     // We only need navData for the Navbar, but we fetch all home data
     const [navData, setNavData] = useState({});
@@ -34,7 +33,6 @@ const AboutUs = () => {
         loadData();
     }, []);
 
-
     // --- RENDERING LOGIC ---
     
     if (loading) {
@@ -53,29 +51,37 @@ const AboutUs = () => {
     // Static content function
     const renderContent = () => (
         <main className="container my-5">
-            <h1 className="text-center mb-4">Welcome to Our Simple About Us Page</h1>
+            <h1 className="text-center mb-4">About YumYum Bento</h1>
             <p className="lead text-center">
-                This is a placeholder page created to ensure your **Navbar dropdowns** are working across all routes.
+                At YumYum Bento, we believe food should be fresh, balanced, and convenient. 
+                We bring authentic Japanese-inspired bento meals right to your doorstep, 
+                crafted daily with care and love.
             </p>
             
             <hr className="my-5" />
 
             <div className="row">
                 <div className="col-md-6">
-                    <h2 className="fw-bold">Our Simple Mission</h2>
+                    <h2 className="fw-bold">Our Mission</h2>
                     <p>
-                        To be the best at what we do, which is delivering a functional, bug-free web application experience. We focus on clean code and robust state management.
+                        Our mission is simple: to make healthy, delicious, and beautifully packed 
+                        bento meals accessible to everyone. Whether you're a busy professional, 
+                        a student, or a family on the go, we deliver meals that are nutritious and 
+                        satisfying — without compromising on taste.
                     </p>
                     <p>
-                        Since this page is static, no custom CSS is loaded. If the dropdown works here, it confirms the issue on the other page was CSS or data structure, not the React-Bootstrap component itself.
+                        Every bento is prepared with seasonal ingredients, balanced portions, 
+                        and a touch of creativity, ensuring you get both variety and quality 
+                        in every box.
                     </p>
                 </div>
                 <div className="col-md-6">
-                    <h2 className="fw-bold">Contact Us</h2>
+                    <h2 className="fw-bold">Get in Touch</h2>
                     <ul className="list-unstyled">
-                        <li>Email: support@example.com</li>
-                        <li>Phone: (123) 456-7890</li>
-                        <li><Link to="/">Go back home</Link></li>
+                        <li>Email: support@yumyumbento.com</li>
+                        <li>Phone: +95 9 123 456 789</li>
+                        <li>Location: Yangon, Myanmar</li>
+                        <li><Link to="/">Back to Home</Link></li>
                     </ul>
                 </div>
             </div>

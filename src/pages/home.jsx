@@ -9,14 +9,15 @@ const HomePage = () => {
     const [navData, setNavData] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    
+    // The target URL for the Classic Lunchbox page (ID 4)
+    const LUNCHBOX_CLASSIC_URL = "/lunchbox/4"; 
 
     useEffect(() => {
         const loadData = async () => {
             try {
                 const data = await fetchHomeData();
                 setNavData(data.nav);
-                // No 'mainContent' data was defined in the API, 
-                // but if it were, you'd set it here too.
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -28,7 +29,6 @@ const HomePage = () => {
     }, []);
 
     // Placeholder content for the main sections (since they are static in home.php)
-    // You'd move these sections into their own React components for better structure (e.g., Hero, ValueProposition, HowItWorks)
     const renderHeroSection = () => (
         <section className="row align-items-center g-0" style={{backgroundColor: '#f8f4ec'}}>
             <div className="col-md-6 image-container">
@@ -40,7 +40,10 @@ const HomePage = () => {
                 <p className="mb-4">
                     With a Lunchbox subscription, enjoy delicious meals while supporting small family-run businesses and preserving culinary traditions.
                 </p>
-                <Link to="/lunchbox" className="btn btn-primary btn-lg">
+                <Link 
+                    to={LUNCHBOX_CLASSIC_URL} 
+                    className="btn btn-primary btn-lg btn-animated-subscribe"
+                >
                     Subscribe Now
                 </Link>
             </div>
@@ -55,7 +58,8 @@ const HomePage = () => {
                     {/* Card 1: Community Focus */}
                     <div className="col-md-4">
                         <div className="value-card">
-                            <i className="fas fa-hand-holding-heart value-icon"></i>
+                            {/* Assuming Font Awesome is linked via CDN or installed */}
+                            <i className="fas fa-hand-holding-heart value-icon"></i> 
                             <hr className="value-line" />
                             <h5 className="fw-bold mt-4">Community Focus</h5>
                             <p>We partner with local, family-owned businesses to bring you authentic, high-quality meals while supporting our community.</p>
@@ -132,7 +136,10 @@ const HomePage = () => {
                         <li className="mb-2">💳 <strong>Easy Subscription</strong> – Simple checkout with multiple payment options for a smooth ordering experience.</li>
                         <li className="mb-2">🛍️ <strong>Convenient Delivery</strong> – Your lunchbox is delivered straight to your door on your chosen schedule.</li>
                     </ul>
-                    <Link to="/lunchbox" className="btn btn-primary btn-lg">
+                    <Link 
+                        to={LUNCHBOX_CLASSIC_URL} 
+                        className="btn btn-primary btn-lg btn-animated-subscribe"
+                    >
                         SUBSCRIBE NOW
                     </Link>
                 </div>
@@ -153,8 +160,6 @@ const HomePage = () => {
                 {renderHowItWorks()}
                 {renderFirstLunchbox()}
             </main>
-            {/* The chat button/box logic needs to be converted into a React component too, 
-                but for brevity, let's include the footer. */}
             <Footer /> 
         </>
     );

@@ -82,7 +82,7 @@ export const fetchLunchboxData = async (lunchboxId) => {
     }
 };
 
-// customer-react/src/services/api.js (Add this to the end of the file)
+// customer-react/src/services/api.js (Existing function)
 
 export const fetchCartData = async () => {
     // Note: This API call needs to send session cookies. Ensure your fetch 
@@ -115,6 +115,32 @@ export const fetchCartData = async () => {
 
     } catch (error) {
         console.error("Error fetching cart data:", error);
+        throw error;
+    }
+};
+
+// --- NEW FUNCTION ADDED FOR FETCHING REVIEWS ---
+export const fetchReviews = async () => {
+    try {
+        const url = `${API_BASE_URL}/reviews.php`; 
+        
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.success) {
+            // The PHP API returns reviews directly in the 'reviews' field
+            return data.reviews; 
+        } else {
+            throw new Error(data.error || data.message || 'Failed to fetch reviews from API.');
+        }
+
+    } catch (error) {
+        console.error("Error fetching reviews:", error);
         throw error;
     }
 };

@@ -15,6 +15,7 @@ import PrivacyPage from './pages/privacy';
 import TermsPage from './pages/terms';
 import CartPage from './pages/cartpage';
 import CheckoutPage from './pages/checkout';
+import ReviewsPage from './pages/reviews';
 
 
 
@@ -50,6 +51,8 @@ const App = () => {
         <Route path="/cart" element={<CartPage />} />
 
         <Route path="/checkout" element={<CheckoutPage />} />
+
+        <Route path="/reviews" element={<ReviewsPage />} />
 
 
 

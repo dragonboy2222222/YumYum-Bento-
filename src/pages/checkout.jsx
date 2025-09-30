@@ -118,7 +118,7 @@ const CheckoutPage = () => {
                     <h2>✅ Order Confirmed!</h2>
                     <p className="lead">{success}</p>
                     <p className="mt-4">
-                        <button onClick={() => navigate('/orders')} className="btn btn-primary me-2">View Your Orders</button>
+                        <button onClick={() => navigate('/profile')} className="btn btn-primary me-2">View Your Orders</button>
                         <button onClick={() => navigate('/')} className="btn btn-secondary">Continue Shopping</button>
                     </p>
                 </div>

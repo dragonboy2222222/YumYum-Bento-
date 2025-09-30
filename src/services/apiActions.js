@@ -4,6 +4,7 @@
 const API_BASE_URL = 'http://localhost:3000/Webpage/api'; 
 const CART_ACTIONS_URL = `${API_BASE_URL}/cart_actions.php`;
 const CHECKOUT_PROCESS_URL = `${API_BASE_URL}/checkout_process.php`; // New Checkout API
+const REVIEWS_URL = `${API_BASE_URL}/reviews.php`; // <-- NEW URL for Reviews API
 
 // Utility function to handle POST requests, now accepting an optional URL
 const postAction = async (payload, url = CART_ACTIONS_URL) => {
@@ -26,16 +27,20 @@ const postAction = async (payload, url = CART_ACTIONS_URL) => {
         // Handle API errors based on HTTP status or the 'success' flag in the payload
         if (!response.ok || !data.success) {
             // Use the message from the API if available, otherwise a generic error
-            throw new Error(data.message || `API Error: ${response.status}`);
+            throw new Error(data.message || data.error || `API Error: ${response.status}`);
         }
 
         return data; // Returns the success response
         
     } catch (error) {
-        console.error("Cart action failed:", error);
+        console.error("Action failed:", error);
         throw error;
     }
 };
+
+// ----------------------------------------------------------------------
+// --- Cart & Checkout Actions ---
+// ----------------------------------------------------------------------
 
 /**
  * 1. Used by LunchboxPage.jsx when clicking 'Subscribe'
@@ -89,4 +94,19 @@ export const finalizeCheckout = (method, address) => {
         method: method, // Payment method
         address: address, // Delivery address
     }, CHECKOUT_PROCESS_URL); // Pass the specific Checkout URL
+};
+
+// ----------------------------------------------------------------------
+// --- NEW: Review Action ---
+// ----------------------------------------------------------------------
+
+/**
+ * 6. Used by ReviewsPage.jsx to submit a new user review.
+ * Calls the reviews.php API.
+ */
+export const submitReview = (rating, reviewText) => {
+    return postAction({
+        rating: rating,
+        review_text: reviewText,
+    }, REVIEWS_URL); // Pass the specific Reviews URL
 };
